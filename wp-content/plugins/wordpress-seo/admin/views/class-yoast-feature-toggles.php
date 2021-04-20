@@ -114,21 +114,6 @@ class Yoast_Feature_Toggles {
 				'order'           => 60,
 			],
 			(object) [
-				/* translators: %s: Ryte */
-				'name'            => sprintf( __( '%s integration', 'wordpress-seo' ), 'Ryte' ),
-				'setting'         => 'ryte_indexability',
-				'label'           => sprintf(
-					/* translators: 1: Ryte, 2: Yoast SEO */
-					__( '%1$s will check weekly if your site is still indexable by search engines and %2$s will notify you when this is not the case.', 'wordpress-seo' ),
-					'Ryte',
-					'Yoast SEO'
-				),
-				/* translators: %s: Ryte */
-				'read_more_label' => sprintf( __( 'Read more about how %s works.', 'wordpress-seo' ), 'Ryte ' ),
-				'read_more_url'   => 'https://yoa.st/2an',
-				'order'           => 70,
-			],
-			(object) [
 				'name'    => __( 'Admin bar menu', 'wordpress-seo' ),
 				'setting' => 'enable_admin_bar_menu',
 				/* translators: 1: Yoast SEO */
@@ -167,6 +152,14 @@ class Yoast_Feature_Toggles {
 					'Yoast SEO'
 				),
 				'order'   => 100,
+			],
+			(object) [
+				'name'            => __( 'Enhanced Slack sharing', 'wordpress-seo' ),
+				'setting'         => 'enable_enhanced_slack_sharing',
+				'label'           => __( 'This adds an author byline and reading time estimate to the article’s snippet when shared on Slack.', 'wordpress-seo' ),
+				'read_more_label' => __( 'Find out how a rich snippet can improve visibility and click-through-rate.', 'wordpress-seo' ),
+				'read_more_url'   => 'https://yoa.st/help-slack-share',
+				'order'           => 105,
 			],
 		];
 
@@ -224,12 +217,16 @@ class Yoast_Feature_Toggles {
 	/**
 	 * Callback for sorting feature toggles by their order.
 	 *
+	 * {@internal Once the minimum PHP version goes up to PHP 7.0, the logic in the function
+	 * can be replaced with the spaceship operator `<=>`.}
+	 *
 	 * @param Yoast_Feature_Toggle $feature_a Feature A.
 	 * @param Yoast_Feature_Toggle $feature_b Feature B.
 	 *
-	 * @return bool Whether order for feature A is bigger than for feature B.
+	 * @return int An integer less than, equal to, or greater than zero indicating respectively
+	 *             that feature A is considered to be less than, equal to, or greater than feature B.
 	 */
 	protected function sort_toggles_callback( Yoast_Feature_Toggle $feature_a, Yoast_Feature_Toggle $feature_b ) {
-		return ( $feature_a->order > $feature_b->order );
+		return ( $feature_a->order - $feature_b->order );
 	}
 }

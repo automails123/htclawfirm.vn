@@ -580,7 +580,7 @@ function remove_head_scripts() {
 add_action( 'wp_enqueue_scripts', 'remove_head_scripts' );
 
 function tp_admin_logo() {
-    echo '<br/><img alt="Martoyo" src="'. get_template_directory_uri() .'/assets/images/logo.png"/>';
+    echo '<br/><img alt="Martoyo" src="'. get_template_directory_uri() .'/assets/images/logo_bg.jpg"/>';
 }
 add_action( 'admin_notices', 'tp_admin_logo' );
 
@@ -591,7 +591,7 @@ function tp_admin_footer_credits( $text ) {
 add_filter( 'admin_footer_text', 'tp_admin_footer_credits' );
 function custom_loginlogo() {
 echo '<style type="text/css">
-h1 a {background-image: url("'. get_template_directory_uri() .'/assets/images/logo.png") !important; background-size: contain  !important;width: auto !important;}
+h1 a {background-image: url("'. get_template_directory_uri() .'/assets/images/logo_bg.jpg") !important; background-size: contain  !important;width: auto !important;}
 </style>';
 }
 add_action('login_head', 'custom_loginlogo');
@@ -2095,11 +2095,11 @@ function show_partners() {
       'posts_per_page' => -1,          
     ));
     if($post_partners->have_posts()) {
-      	echo '<div data-partner>';
+      	echo '<div data-partner class="row">';
       	while ($post_partners->have_posts()) {
 	        $post_partners->the_post(); 
 	        $post_id = get_the_ID();
-	        echo '<div class="item p-2 p-md-3">
+	        echo '<div class="item px-2 my-2 px-lg-3 my-lg-3 col-4 col-md-3 col-lg-2">
         	<div class="d-table w-100 h-100"><div class="d-table-cell align-middle">'. get_the_post_thumbnail( $post_id, 'full', array( 'class' =>'img-fluid mx-auto d-block', 'alt' => get_the_title(), 'loading'=> 'lazy')).'</div></div></div>';
       	} 
      	echo '</div>';

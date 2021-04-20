@@ -1,73 +1,12 @@
 </main>
 <footer class="footer pt-5">
-  <div class="container pb-3">
-    <div class="row">
-      <div class="col-md-8 text-center text-md-left mb-4 mb-md-0">
-        <img loading="lazy" src="<?php echo get_template_directory_uri();?>/assets/images/logo_white.png" class="img-fluid d-block d-md-inline-block mb-3 mx-auto" alt="<?php bloginfo('description'); ?>">
-        <h2 class="mb-0">CÔNG TY TNHH MARTOYO APPLIED MATERIALS</h2>
-      </div>
-      <div class="col-md-4 text-left text-md-right">        
-        <?php echo newsLetter(); ?>
-      </div>
-    </div>
-    <div class="line my-4 my-md-5"></div>
-    <div class="row">
-      <div class="col-sm-12 col-md-4 mb-4 mb-md-0">
-        <h3 class="text-uppercase mb-4">Thông tin liên hệ</h3>       
-        <ul class="address list-unstyled mb-4">
-          <?php if(get_option('address_company') !='') {echo'<li class="address-icon">'.get_option('address_company').'</li>';}?>
-          <?php if(get_option('hotline') !='') {echo'<li class="hotline-icon">'.get_option('hotline').'</li>';}?>
-          <?php if(get_option('phone_company') !='') {echo'<li class="fax-icon">'.get_option('phone_company').'</li>';}?>
-          <?php if(get_option('mail_company') !='') {echo'<li class="mail-icon">'.get_option('mail_company').'</li>';}?>
-        </ul>
-        <ul class="list-unstyled social-icon d-flex align-items-center flex-wrap">
-          <li class="pr-3 text-center"><a href="<?php echo get_option('facebook');?>" class="d-block" target="_blank" title="Facebook Martoyo"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-          <li class="pr-3 text-center"><a href="<?php echo get_option('twitter');?>" class="d-block" target="_blank" title="Twitter Martoyo"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-          <li class="text-center"><a href="<?php echo get_option('youtube');?>" class="d-block" target="_blank" title="Youtube Martoyo"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-        </ul>    
-      </div>
-      <div class="col-sm-12 col-md-5">
-        <div class="row">
-          <div class="col-6">
-             <h3 class="text-uppercase mb-4">Liên kết nhanh</h3>
-              <ul class="list-unstyled list-i">
-               <li><a href="<?php bloginfo('url'); ?>/ve-chung-toi" title="Về Chúng Tôi">Về Chúng Tôi</a></li>
-               <li><a href="<?php bloginfo('url'); ?>/du-an/" title="Dự án">Dự án</a></li>
-               <li><a href="<?php bloginfo('url'); ?>/lien-he" title="Liên hệ">Liên hệ</a></li>
-               <li><a href="<?php bloginfo('url'); ?>/tin-tuc" title="Tin tức">Tin tức</a></li>
-              </ul>
-           </div>
-           <div class="col-6">
-             <h3 class="text-uppercase mb-4">Sản phẩm</h3>
-             <ul class="list-unstyled list-i">
-                <?php
-                  $taxonomy_product = 'menu-products';
-                  $terms = get_terms( array(
-                    'taxonomy' => $taxonomy_product,
-                    'hide_empty' => false,
-                    'orderby'   => 'parent', 
-                    'order' => 'DESC',
-                ) );
-
-                if ( $terms && !is_wp_error( $terms ) ) : 
-                  foreach ( $terms as $term ) {
-                    if($term->parent == 0) { 
-                      echo "<li><a href='".get_term_link($term->slug, $taxonomy_product)."' title='".$term->name."'>".$term->name."</a></li>";
-                    } 
-                  }
-                endif; ?>                    
-             </ul>
-           </div>
-
-        </div>         
-      </div>
-      <div class="col-sm-12 col-md-3">
-        <h3 class="text-uppercase mb-4">Tin tức</h3>
-        <?php if(function_exists('news_footer')){ echo news_footer(); } ?>
-      </div>
+  <div class="container pb-5">
+    <img loading="lazy" src="<?php echo get_template_directory_uri();?>/assets/images/logo.png" class="img-fluid d-block mb-4 mx-auto" alt="<?php bloginfo('description'); ?>">
+    <div class="text-center">
+      © 2021 COPYRIGHT HTC INTERNATIONAL LAW FIRM
     </div>
   </div>
-  <div class="footer-b py-3">
+  <div class="footer-b py-4">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-between">
         <?php if(get_option('address_company') !='') {echo'<div class="d-flex align-items-baseline mb-2 mb-lg-0"><img loading="lazy" src="'.get_template_directory_uri().'/assets/images/map.svg" class="img-fluid d-block mr-2" alt="'.get_bloginfo( 'name' ).'">'.get_option('address_company').'</div>';}
