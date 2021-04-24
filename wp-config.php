@@ -23,11 +23,11 @@ define( 'WP_CACHE', true );
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'htclawfirm'); // vodanhc2_htclawfirm paaa: htclawfirm8w9b5%Ol
-define('DB_USER', 'root');// 
+define('DB_NAME', 'vodanhc2_htclawfirm'); // vodanhc2_htclawfirm paaa: htclawfirm8w9b5%Ol  //htclawfirm
+define('DB_USER', 'vodanhc2_htclawfirm');// 
 //user_admin:lotusonic
 /** MySQL database password */
-define('DB_PASSWORD', '');// 
+define('DB_PASSWORD', 'htclawfirm8w9b5%Ol');// 
 //htclawfirm
 //htclawfirm8w9b5%Ol
 /** MySQL hostname */

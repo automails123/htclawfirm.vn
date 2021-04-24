@@ -33,13 +33,16 @@
                 'menu_class' => 'navbar-nav',
               ) ); ?>          
             <?php endif; ?> 
-            <div class="line_h d-none d-md-block mx-3">&nbsp;</div>
-            <div class="search-area position-relative mb-4 mb-md-0">
-              <form class="inner-search position-relative" role="search" method="get" action="<?php echo get_permalink(); ?>">  
-                <input id="<?php echo $unique_id; ?>" type="search"  class="search-field input-searchbox rounded pl-2" placeholder="<?php echo esc_attr_x( 'Search …', 'placeholder' ) ?>" value="<?php echo get_search_query() ?>" name="s">
-                <button class="btn btn-searchbox py-0" type="submit" value="<?php echo esc_attr_x( 'Search', 'submit button' ) ?>"><i class="fa fa-search" aria-hidden="true"></i></button>
-              </form>                    
-            </div>  
+            <div class="line_h d-none d-lg-block mx-3">&nbsp;</div>
+            <div class="btn-searchbox search-h mb-4 mb-md-0 position-relative">
+              <i class="fa fa-search d-none icon-s d-lg-block" aria-hidden="true"></i>
+              <div class="search-area">
+                <form class="inner-search position-relative p-3" role="search" method="get" action="<?php echo get_permalink(); ?>">  
+                  <input id="<?php echo $unique_id; ?>" type="search"  class="search-field input-searchbox rounded pl-2" placeholder="<?php echo esc_attr_x( 'Search …', 'placeholder' ) ?>" value="<?php echo get_search_query() ?>" name="s">
+                  <button class="btn btn-searchbox py-0" type="submit" value="<?php echo esc_attr_x( 'Search', 'submit button' ) ?>"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>                    
+              </div>  
+            </div>
           </div>
         </div>
       </nav>

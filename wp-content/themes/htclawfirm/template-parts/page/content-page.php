@@ -1,10 +1,11 @@
-	<div class="d-flex justify-content-center align-items-center">
+	<!-- <div class="d-flex justify-content-center align-items-center">
 		<span class="double-line"></span>
 	    <?php the_title( '<h2 class="text-uppercase title-item m-0 px-2">', '</h2>' ); ?>
 		<span class="double-line"></span>
-	</div>
+	</div> -->
 	
-	<div class="entry-content py-3 py-md-5">		
+	<div class="entry-content">	
+		
 		<?php
 			the_content();
 			wp_link_pages( array(

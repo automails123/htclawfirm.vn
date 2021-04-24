@@ -37,6 +37,18 @@ d.slice(e-c+1,e+c+2).addClass("slick-active").attr("aria-hidden","false")),0===a
 	  		speed: 300,
 		});
 	}
+	
+	if($('#review-custom').length){
+		$('#review-custom').slick({
+			dots: true,
+		 	arrows: false,
+		 	slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: true,
+			infinite: true,
+	  		speed: 300,
+		});
+	}
 	// if($('[data-partner]').length){
 	// 	$('[data-partner]').slick({
 	// 		dots: false,
